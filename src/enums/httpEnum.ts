@@ -2,10 +2,15 @@
  * @description: Request result set
  */
 export enum ResultEnum {
-  SUCCESS = 0,
+  SUCCESS = 200,
+  USERERR = 400,
   ERROR = 1,
   TIMEOUT = 401,
   TYPE = 'success',
+}
+
+export enum ResultCodeEnum {
+  TOKENEXP = 10012,
 }
 
 /**

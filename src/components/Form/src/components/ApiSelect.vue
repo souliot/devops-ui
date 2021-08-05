@@ -57,6 +57,7 @@
         type: Object as PropType<Recordable>,
         default: () => ({}),
       },
+      extLabel: Array,
       // support xxx.xxx.xx
       resultField: propTypes.string.def(''),
       labelField: propTypes.string.def('label'),
@@ -82,7 +83,7 @@
           if (next) {
             const value = next[valueField];
             prev.push({
-              label: next[labelField],
+              label: next[labelField] + getExtLabel(next),
               value: numberToString ? `${value}` : value,
               ...omit(next, [labelField, valueField]),
             });
@@ -90,6 +91,16 @@
           return prev;
         }, [] as OptionsItem[]);
       });
+
+      function getExtLabel(data: Recordable) {
+        if (props.extLabel && props.extLabel.length > 0) {
+          const val = props.extLabel.map((item: string) => {
+            return data[item];
+          });
+          return `  ( ${val.join(' -- ')} )`;
+        }
+        return '';
+      }
 
       watchEffect(() => {
         props.immediate && fetch();

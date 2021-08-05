@@ -100,6 +100,7 @@
 
     &__title {
       font-size: 16px;
+      line-height: 1.5;
       font-weight: 700;
       transition: all 0.5s;
     }

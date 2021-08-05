@@ -42,7 +42,7 @@ export const useUserStore = defineStore({
       return this.token || getAuthCache<string>(TOKEN_KEY);
     },
     getRoleList(): RoleEnum[] {
-      return this.roleList.length > 0 ? this.roleList : getAuthCache<RoleEnum[]>(ROLES_KEY);
+      return this.roleList?.length > 0 ? this.roleList : getAuthCache<RoleEnum[]>(ROLES_KEY);
     },
     getSessionTimeout(): boolean {
       return !!this.sessionTimeout;
@@ -112,7 +112,7 @@ export const useUserStore = defineStore({
     async getUserInfoAction(): Promise<UserInfo> {
       const userInfo = await getUserInfo();
       const { roles } = userInfo;
-      const roleList = roles.map((item) => item.value) as RoleEnum[];
+      const roleList = roles?.map((item) => item.value) as RoleEnum[];
       this.setUserInfo(userInfo);
       this.setRoleList(roleList);
       return userInfo;
@@ -126,6 +126,15 @@ export const useUserStore = defineStore({
       } catch {
         console.log('注销Token失败');
       }
+      this.setToken(undefined);
+      this.setSessionTimeout(false);
+      goLogin && router.push(PageEnum.BASE_LOGIN);
+    },
+
+    /**
+     * @description: logout
+     */
+    async logoutNoRequest(goLogin = false) {
       this.setToken(undefined);
       this.setSessionTimeout(false);
       goLogin && router.push(PageEnum.BASE_LOGIN);
