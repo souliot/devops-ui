@@ -1,10 +1,10 @@
 {
-  "name": "vben-admin",
+  "name": "pagoda-ui",
   "version": "2.7.0",
   "author": {
-    "name": "vben",
-    "email": "anncwb@126.com",
-    "url": "https://github.com/anncwb"
+    "name": "Souliot",
+    "email": "souliot@163.com",
+    "url": "https://github.com/souliot"
   },
   "scripts": {
     "bootstrap": "yarn install",
@@ -20,7 +20,7 @@
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
-    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
@@ -41,13 +41,9 @@
     "@zxcvbn-ts/core": "^1.0.0-beta.0",
     "ant-design-vue": "2.2.2",
     "axios": "^0.21.1",
-    "codemirror": "^5.62.2",
-    "cropperjs": "^1.5.12",
     "crypto-js": "^4.1.1",
     "echarts": "^5.1.2",
-    "intro.js": "^4.1.0",
     "lodash-es": "^4.17.21",
-    "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "pinia": "2.0.0-beta.5",
@@ -55,14 +51,10 @@
     "qrcode": "^1.4.4",
     "resize-observer-polyfill": "^1.5.1",
     "sortablejs": "^1.14.0",
-    "tinymce": "^5.8.2",
-    "vditor": "^3.8.6",
     "vue": "3.1.5",
     "vue-i18n": "9.1.7",
-    "vue-json-pretty": "^2.0.2",
     "vue-router": "^4.0.10",
-    "vue-types": "^4.0.1",
-    "xlsx": "^0.17.0"
+    "vue-types": "^4.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
@@ -76,7 +68,6 @@
     "@types/intro.js": "^3.0.2",
     "@types/jest": "^26.0.24",
     "@types/lodash-es": "^4.17.4",
-    "@types/mockjs": "^1.0.4",
     "@types/node": "^16.4.11",
     "@types/nprogress": "^0.2.0",
     "@types/qrcode": "^1.4.1",
@@ -126,7 +117,6 @@
     "vite-plugin-compression": "^0.3.3",
     "vite-plugin-html": "^2.0.7",
     "vite-plugin-imagemin": "^0.4.3",
-    "vite-plugin-mock": "^2.9.4",
     "vite-plugin-purge-icons": "^0.7.0",
     "vite-plugin-pwa": "^0.9.3",
     "vite-plugin-style-import": "^1.1.1",
