@@ -26,25 +26,24 @@ export const columns: BasicColumn[] = [
     title: '备注',
     dataIndex: 'description',
   },
+  {
+    title: 'id',
+    dataIndex: 'meta_component.id',
+  },
 ];
 
 export const propertiesFormSchema: FormSchema[] = [
   {
-    field: `meta_component`,
-    // field: `id`,
-    valueField: 'id',
+    field: 'meta_component.id',
     label: `所属组件`,
-    component: 'ApiSelect',
-    // itemProps: {
-    //   name: ['meta_component', 'id'],
+    component: 'Input',
+    // componentProps: {
+    //   api: getComponentList,
+    //   resultField: 'lists',
+    //   labelField: 'name',
+    //   valueField: 'id',
+    //   extLabel: ['version'],
     // },
-    componentProps: {
-      api: getComponentList,
-      resultField: 'lists',
-      labelField: 'name',
-      valueField: 'id',
-      extLabel: ['version'],
-    },
     required: true,
   },
   {
@@ -74,11 +73,6 @@ export const propertiesFormSchema: FormSchema[] = [
     label: '默认值',
     component: 'Input',
     required: true,
-  },
-  {
-    field: 'description',
-    label: '备注',
-    component: 'InputTextArea',
   },
   {
     field: 'description',

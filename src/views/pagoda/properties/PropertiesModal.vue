@@ -19,7 +19,7 @@
       const isUpdate = ref(true);
       const rowId = ref('');
 
-      const [registerForm, { setFieldsValue, updateSchema, resetFields, validate }] = useForm({
+      const [registerForm, { setFieldsValue, resetFields, validate }] = useForm({
         labelWidth: 100,
         schemas: propertiesFormSchema,
         showActionButtonGroup: false,
@@ -39,13 +39,6 @@
             ...data.record,
           });
         }
-
-        updateSchema([
-          {
-            field: 'pwd',
-            show: !unref(isUpdate),
-          },
-        ]);
       });
 
       const getTitle = computed(() => (!unref(isUpdate) ? '新增组件属性' : '编辑组件属性'));

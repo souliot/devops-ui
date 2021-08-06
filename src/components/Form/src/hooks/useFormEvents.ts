@@ -52,6 +52,12 @@ export function useFormEvents({
       .map((item) => item.field)
       .filter(Boolean);
 
+    function includesField(arr: string[], field: string): boolean {
+      return arr.some((item) => {
+        return item.split('.').includes(field);
+      });
+    }
+
     const validKeys: string[] = [];
     Object.keys(values).forEach((key) => {
       const schema = unref(getSchema).find((item) => item.field === key);
@@ -61,7 +67,7 @@ export function useFormEvents({
 
       value = handleInputNumberValue(schema?.component, value);
       // 0| '' is allow
-      if (hasKey && fields.includes(key)) {
+      if (hasKey && includesField(fields, key)) {
         // time type
         if (itemIsDateType(key)) {
           if (Array.isArray(value)) {

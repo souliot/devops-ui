@@ -50,6 +50,7 @@
   import { dateUtil } from '/@/utils/dateUtil';
 
   // import { cloneDeep } from 'lodash-es';
+  import { set } from 'lodash-es';
   import { deepMerge } from '/@/utils';
 
   import { useFormValues } from './hooks/useFormValues';
@@ -228,7 +229,7 @@
       }
 
       function setFormModel(key: string, value: any) {
-        formModel[key] = value;
+        set(formModel, key, value);
         const { validateTrigger } = unref(getBindValue);
         if (!validateTrigger || validateTrigger === 'change') {
           validateFields([key]).catch((_) => {});

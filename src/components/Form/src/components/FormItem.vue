@@ -14,6 +14,7 @@
   import { upperFirst, cloneDeep } from 'lodash-es';
   import { useItemLabelWidth } from '../hooks/useLabelWidth';
   import { useI18n } from '/@/hooks/web/useI18n';
+  import { get } from 'lodash-es';
 
   export default defineComponent({
     name: 'BasicFormItem',
@@ -256,7 +257,7 @@
         propsData.formValues = unref(getValues);
 
         const bindValue: Recordable = {
-          [valueField || (isCheck ? 'checked' : 'value')]: props.formModel[field],
+          [valueField || (isCheck ? 'checked' : 'value')]: get(props.formModel, field),
         };
 
         const compAttr: Recordable = {
