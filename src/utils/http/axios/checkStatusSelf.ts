@@ -15,7 +15,7 @@ const stp = projectSetting.sessionTimeoutProcessing;
 
 export function checkStatusSelf(
   data: Result,
-  errorMessageMode: ErrorMessageMode = 'message'
+  errorMessageMode: ErrorMessageMode = 'message',
 ): void {
   const { t } = useI18n();
   const userStore = useUserStoreWithOut();
@@ -34,7 +34,7 @@ export function checkStatusSelf(
       }
       break;
     default:
-      errMessage = data.message;
+      errMessage = data.more_info;
   }
 
   if (errMessage) {

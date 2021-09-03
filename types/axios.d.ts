@@ -28,6 +28,7 @@ export interface Result<T = any> {
   code: number;
   type: string;
   message: string;
+  more_info: string;
   data: T;
 }
 
