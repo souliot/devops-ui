@@ -9,7 +9,7 @@ const sys: AppRouteModule = {
   component: LAYOUT,
   redirect: '/sys/env',
   meta: {
-    orderNo: 10,
+    orderNo: 12,
     icon: 'ion:construct-outline',
     title: t('routes.devops.sys.sys'),
   },
@@ -22,7 +22,7 @@ const sys: AppRouteModule = {
         // affix: true,
         ignoreKeepAlive: true,
         title: t('routes.devops.sys.env'),
-        icon: 'ion:business-outline',
+        icon: 'ion:ios-ionic-outline',
       },
     },
     {
@@ -33,7 +33,7 @@ const sys: AppRouteModule = {
         // affix: true,
         ignoreKeepAlive: true,
         title: t('routes.devops.sys.promJob'),
-        icon: 'ion:business-outline',
+        icon: 'ion:ios-medkit-outline',
       },
     },
     {
@@ -44,7 +44,7 @@ const sys: AppRouteModule = {
         // affix: true,
         ignoreKeepAlive: true,
         title: t('routes.devops.sys.export'),
-        icon: 'ion:business-outline',
+        icon: 'ion:golf-outline',
       },
     },
   ],
