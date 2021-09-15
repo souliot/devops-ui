@@ -8,7 +8,7 @@ enum Api {
 /**
  * @description: getPromJobList
  */
-export const getPromJobList = (params: PromJobParams) => {
+export const getPromJobList = (params?: PromJobParams) => {
   return defHttp.get<PromJobListGetResultModel>({
     url: Api.BASIC_PATH,
     params,
@@ -28,7 +28,7 @@ export const addPromJob = (data: PromJobInfo) => {
 /**
  * @description: delPromJob
  */
-export const delPromJob = (id: number) => {
+export const delPromJob = (id: string) => {
   return defHttp.delete({
     url: `${Api.BASIC_PATH}/${id}`,
   });

@@ -8,7 +8,7 @@ enum Api {
 /**
  * @description: getExportList
  */
-export const getExportList = (params: ExportParams) => {
+export const getExportList = (params?: ExportParams) => {
   return defHttp.get<ExportListGetResultModel>({
     url: Api.BASIC_PATH,
     params,

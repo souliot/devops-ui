@@ -8,7 +8,7 @@ enum Api {
 /**
  * @description: getEnvList
  */
-export const getEnvList = (params: EnvParams) => {
+export const getEnvList = (params?: EnvParams) => {
   return defHttp.get<EnvListGetResultModel>({
     url: Api.BASIC_PATH,
     params,

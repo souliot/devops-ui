@@ -67,7 +67,7 @@
     name: 'BasicForm',
     components: { FormItem, Form, Row, FormAction },
     props: basicProps,
-    emits: ['advanced-change', 'reset', 'submit', 'register'],
+    emits: ['advanced-change', 'item-change', 'reset', 'submit', 'register'],
     setup(props, { emit, attrs }) {
       const formModel = reactive<Recordable>({});
       const modalFn = useModalContext();
@@ -234,7 +234,11 @@
         set(formModel, key, value);
         const { validateTrigger } = unref(getBindValue);
         if (!validateTrigger || validateTrigger === 'change') {
-          validateFields([key]).catch((_) => {});
+          validateFields([key])
+            .then(() => {
+              emit('item-change', key, value);
+            })
+            .catch((_) => {});
         }
       }
 

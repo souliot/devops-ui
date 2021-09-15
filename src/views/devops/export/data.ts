@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { dateUtil } from '/@/utils/dateUtil';
 import { BasicColumn } from '/@/components/Table/src/types/table';
 
 export const columns: BasicColumn[] = [
@@ -24,7 +24,7 @@ export const columns: BasicColumn[] = [
     dataIndex: 'createTime',
     width: 160,
     customRender: ({ text }: { text: any }) => {
-      return text ? moment(text * 1000).format('YYYY-MM-DD HH:mm:ss') : '';
+      return text ? dateUtil(text * 1000).format('YYYY-MM-DD HH:mm:ss') : '';
     },
   },
 ];
