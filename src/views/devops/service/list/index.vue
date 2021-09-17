@@ -25,6 +25,11 @@
         <TableAction
           :actions="[
             {
+              icon: 'clarity:note-edit-line',
+              onClick: handleEditSetting.bind(null, record),
+              tooltip: '修改服务配置',
+            },
+            {
               icon: 'ant-design:delete-outlined',
               color: 'error',
               tooltip: '删除此服务',
@@ -37,6 +42,7 @@
         />
       </template>
     </BasicTable>
+    <SettingDrawer @register="registerDrawer" @success="handleSuccess" />
   </div>
 </template>
 <script lang="ts">
@@ -44,11 +50,14 @@
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { columns, getFormConfig } from './data';
   import { Tag } from 'ant-design-vue';
+  import { useDrawer } from '/@/components/Drawer';
   import { getServiceList, delService, setOutAddress } from '/@/api/devops/service';
+  import SettingDrawer from './SettingDrawer.vue';
   export default defineComponent({
     name: 'ServiceIndex',
-    components: { BasicTable, TableAction, [Tag.name]: Tag },
+    components: { BasicTable, TableAction, [Tag.name]: Tag, SettingDrawer },
     setup() {
+      const [registerDrawer, { openDrawer }] = useDrawer();
       const [registerTable, { reload }] = useTable({
         api: getServiceList,
         rowKey: 'Id',
@@ -79,16 +88,7 @@
         window.open('http://' + addr + '/metrics', 'metrics');
       }
 
-      function handleSuccess({ isUpdate }) {
-        if (isUpdate) {
-          // 演示不刷新表格直接更新内部数据。
-          // 注意：updateTableDataRecord要求表格的rowKey属性为string并且存在于每一行的record的keys中
-          // updateTableDataRecord(values.id, values);
-          reload();
-        } else {
-          reload();
-        }
-      }
+      function handleSuccess() {}
 
       function handleEditEnd({ record, value }: Recordable) {
         setOutAddress(record.Env, record.Id, value);
@@ -96,6 +96,13 @@
 
       function handleEditCancel() {
         console.log('cancel');
+      }
+
+      function handleEditSetting(record: Recordable) {
+        openDrawer(true, {
+          record,
+          isUpdate: true,
+        });
       }
 
       return {
@@ -106,6 +113,8 @@
         handleReloadCurrent,
         handleEditEnd,
         handleEditCancel,
+        handleEditSetting,
+        registerDrawer,
       };
     },
   });

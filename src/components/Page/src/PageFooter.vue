@@ -1,5 +1,5 @@
 <template>
-  <div :class="prefixCls" :style="{ width: getCalcContentWidth }">
+  <div :class="prefixCls" :style="getWrapStyle">
     <div :class="`${prefixCls}__left`">
       <slot name="left"></slot>
     </div>
@@ -10,17 +10,24 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, unref, computed, CSSProperties } from 'vue';
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   import { useDesign } from '/@/hooks/web/useDesign';
+  import { useAppInject } from '/@/hooks/web/useAppInject';
 
   export default defineComponent({
     name: 'PageFooter',
     inheritAttrs: false,
     setup() {
+      const { getIsMobile } = useAppInject();
       const { prefixCls } = useDesign('page-footer');
       const { getCalcContentWidth } = useMenuSetting();
-      return { prefixCls, getCalcContentWidth };
+      const getWrapStyle = computed((): CSSProperties => {
+        const style: CSSProperties = {};
+        style.width = unref(getIsMobile) ? '100%' : unref(getCalcContentWidth);
+        return style;
+      });
+      return { prefixCls, getWrapStyle };
     },
   });
 </script>

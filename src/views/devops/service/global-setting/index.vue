@@ -1,7 +1,7 @@
 <template>
   <PageWrapper title="全局配置" contentClass="global-setting">
     <template #leftFooter>
-      <BasicForm @register="registerHeader" @item-change="envChange">
+      <BasicForm @register="registerHeader">
         <template #envSlot="{ model, field }">
           <Select
             v-model:value="model[field]"
@@ -155,6 +155,8 @@
 
 <style lang="less">
   .global-setting {
+    padding-bottom: 50px;
+
     .ant-form-item {
       &-label > label::after {
         content: '';

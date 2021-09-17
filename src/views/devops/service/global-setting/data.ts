@@ -6,12 +6,6 @@ export const headerSchemas: FormSchema[] = [
     label: `环境`,
     component: 'Select',
     slot: 'envSlot',
-    // componentProps: {
-    //   api: getEnvList,
-    //   resultField: 'lists',
-    //   labelField: 'name',
-    //   valueField: 'name',
-    // },
     colProps: {
       xl: 8,
       xxl: 8,

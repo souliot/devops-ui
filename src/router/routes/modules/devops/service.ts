@@ -27,7 +27,7 @@ const dashboard: AppRouteModule = {
     {
       path: 'setting',
       name: 'ServiceSetting',
-      component: () => import('/@/views/devops/service/setting/index.vue'),
+      component: () => import('/@/views/devops/service/typ-setting/index.vue'),
       meta: {
         title: t('routes.devops.service.setting'),
         icon: 'ion:color-wand-outline',
