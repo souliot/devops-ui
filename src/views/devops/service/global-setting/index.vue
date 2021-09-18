@@ -39,7 +39,7 @@
   import { BasicForm, useForm } from '/@/components/Form';
   import { schemas, headerSchemas } from './data';
   import { PageWrapper } from '/@/components/Page';
-  import { Card, Select, SelectOption, message } from 'ant-design-vue';
+  import { Card, Select, message } from 'ant-design-vue';
   import MongoForm from './MongoForm.vue';
   import RedisForm from './RedisForm.vue';
   import EtcdForm from './EtcdForm.vue';
@@ -50,7 +50,7 @@
     name: 'GlobalSettingIndex',
     components: {
       Select,
-      SelectOption,
+      SelectOption: Select.Option,
       BasicForm,
       PageWrapper,
       [Card.name]: Card,

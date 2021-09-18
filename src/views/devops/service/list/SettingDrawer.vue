@@ -22,7 +22,7 @@
   import { getSchema } from './setting.data';
   import { getDefaultData } from './setting.default';
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
-  import { TypographyText, Empty, message } from 'ant-design-vue';
+  import { Typography, Empty, message } from 'ant-design-vue';
   import { getAppSetting, editAppSetting } from '/@/api/devops/app-setting';
   interface ITitle {
     Typ: string;
@@ -33,7 +33,7 @@
 
   export default defineComponent({
     name: 'SettingDrawer',
-    components: { BasicDrawer, BasicForm, TypographyText, Empty },
+    components: { BasicDrawer, BasicForm, TypographyText: Typography.Text, Empty },
     emits: ['success', 'register'],
     setup(_, { emit }) {
       let version = 0;

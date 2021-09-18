@@ -29,13 +29,13 @@
 
 <script lang="ts">
   import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface';
-  import { Form, FormItem } from 'ant-design-vue';
+  import { Form } from 'ant-design-vue';
   import { UnwrapRef, reactive, ref, defineComponent } from 'vue';
   import { ExportInfo } from '/@/api/devops/model/exportModel';
 
   export default defineComponent({
     name: 'ExportForm',
-    components: { Form, FormItem },
+    components: { Form, FormItem: Form.Item },
     setup() {
       const formRef = ref();
       const formItemLayout = {

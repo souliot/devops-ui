@@ -2,12 +2,12 @@
   <div>
     <BasicTable @register="registerTable" @edit-end="handleEditEnd" @edit-cancel="handleEditCancel">
       <template #status="{ record }">
-        <a-tag v-if="record.Status" color="#87d068">在线</a-tag>
-        <a-tag v-if="!record.Status" color="#f50">离线</a-tag>
+        <Tag v-if="record.Status" color="#87d068">在线</Tag>
+        <Tag v-if="!record.Status" color="#f50">离线</Tag>
       </template>
       <template #metrics="{ record }">
-        <a-tag v-if="record.MetricsType" color="#87d068">启用</a-tag>
-        <a-tag v-if="!record.MetricsType" color="#f50">禁用</a-tag>
+        <Tag v-if="record.MetricsType" color="#87d068">启用</Tag>
+        <Tag v-if="!record.MetricsType" color="#f50">禁用</Tag>
       </template>
       <template #address="{ record }">
         <a-button v-if="record.MetricsType" type="link" @click="metrics(record.Address)">{{
@@ -54,19 +54,21 @@
   import { defineComponent } from 'vue';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { columns, getFormConfig } from './data';
-  import { message } from 'ant-design-vue';
+  import { Tag, message } from 'ant-design-vue';
   import { useDrawer } from '/@/components/Drawer';
   import { getServiceList, delService, setOutAddress } from '/@/api/devops/service';
   import { controller } from '/@/api/devops/controller';
   import SettingDrawer from './SettingDrawer.vue';
   export default defineComponent({
     name: 'ServiceIndex',
-    components: { BasicTable, TableAction, SettingDrawer },
+    components: { BasicTable, TableAction, SettingDrawer, Tag },
     setup() {
       const [registerDrawer, { openDrawer }] = useDrawer();
       const [registerTable, { reload }] = useTable({
         api: getServiceList,
-        rowKey: 'Id',
+        rowKey: (record) => {
+          return record.Env + '_' + record.Typ + '_' + record.Id;
+        },
         bordered: true,
         showIndexColumn: true,
         showTableSetting: true,

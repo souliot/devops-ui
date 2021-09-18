@@ -41,7 +41,7 @@
   import { getSchema, headerSchemas } from './data';
   import { getDefaultData } from './default';
   import { PageWrapper } from '/@/components/Page';
-  import { Card, Select, SelectOption, Empty, message } from 'ant-design-vue';
+  import { Card, Select, Empty, message } from 'ant-design-vue';
   import { ServiceType } from '/@/api/devops/model/serviceModel';
   import { EnvListGetResultModel } from '/@/api/devops/model/envModel';
   import { getEnvList } from '/@/api/devops/env';
@@ -50,7 +50,7 @@
     name: 'SettingIndex',
     components: {
       Select,
-      SelectOption,
+      SelectOption: Select.Option,
       BasicForm,
       PageWrapper,
       [Card.name]: Card,

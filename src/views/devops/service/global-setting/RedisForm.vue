@@ -53,13 +53,13 @@
 <script lang="ts">
   import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons-vue';
   import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface';
-  import { Form, FormItem, Row, Col } from 'ant-design-vue';
+  import { Form, Row, Col } from 'ant-design-vue';
   import { UnwrapRef, reactive, ref, defineComponent } from 'vue';
   import { GlobalSettingInfo } from '/@/api/devops/model/globalSettingModel';
 
   export default defineComponent({
     name: 'RedisForm',
-    components: { MinusCircleOutlined, PlusOutlined, Form, FormItem, Row, Col },
+    components: { MinusCircleOutlined, PlusOutlined, Form, FormItem: Form.Item, Row, Col },
     setup() {
       const formRef = ref();
       let width = '80px';

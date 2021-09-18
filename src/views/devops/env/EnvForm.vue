@@ -48,13 +48,13 @@
 <script lang="ts">
   import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons-vue';
   import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface';
-  import { Form, FormItem } from 'ant-design-vue';
+  import { Form } from 'ant-design-vue';
   import { UnwrapRef, reactive, ref, defineComponent } from 'vue';
   import { EnvInfo } from '/@/api/devops/model/envModel';
 
   export default defineComponent({
     name: 'EnvForm',
-    components: { MinusCircleOutlined, PlusOutlined, Form, FormItem },
+    components: { MinusCircleOutlined, PlusOutlined, Form, FormItem: Form.Item },
     setup() {
       const formRef = ref();
       const formItemLayout = {

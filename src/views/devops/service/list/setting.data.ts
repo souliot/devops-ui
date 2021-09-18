@@ -523,7 +523,6 @@ const schemas7: FormSchema[] = [
       checked: true,
     },
     defaultValue: false,
-    required: true,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -621,7 +620,6 @@ const schemas7: FormSchema[] = [
       checked: true,
     },
     defaultValue: false,
-    required: true,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -635,7 +633,6 @@ const schemas7: FormSchema[] = [
       checked: true,
     },
     defaultValue: false,
-    required: true,
     colProps: {
       xl: 24,
       xxl: 24,

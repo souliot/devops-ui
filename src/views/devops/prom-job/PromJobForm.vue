@@ -85,13 +85,20 @@
 <script lang="ts">
   import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons-vue';
   import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface';
-  import { Form, FormItem, Select, SelectOption } from 'ant-design-vue';
+  import { Form, Select } from 'ant-design-vue';
   import { UnwrapRef, reactive, ref, defineComponent } from 'vue';
   import { PromJobInfo } from '/@/api/devops/model/promJobModel';
 
   export default defineComponent({
     name: 'PromJobForm',
-    components: { MinusCircleOutlined, PlusOutlined, Form, FormItem, Select, SelectOption },
+    components: {
+      MinusCircleOutlined,
+      PlusOutlined,
+      Form,
+      FormItem: Form.Item,
+      Select,
+      SelectOption: Select.Option,
+    },
     setup() {
       const formRef = ref();
       const formItemLayout = {
