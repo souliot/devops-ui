@@ -30,6 +30,11 @@
               tooltip: '修改服务配置',
             },
             {
+              icon: 'ion:ios-refresh',
+              onClick: handleController.bind(null, record),
+              tooltip: '重启服务',
+            },
+            {
               icon: 'ant-design:delete-outlined',
               color: 'error',
               tooltip: '删除此服务',
@@ -49,13 +54,14 @@
   import { defineComponent } from 'vue';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { columns, getFormConfig } from './data';
-  import { Tag } from 'ant-design-vue';
+  import { message } from 'ant-design-vue';
   import { useDrawer } from '/@/components/Drawer';
   import { getServiceList, delService, setOutAddress } from '/@/api/devops/service';
+  import { controller } from '/@/api/devops/controller';
   import SettingDrawer from './SettingDrawer.vue';
   export default defineComponent({
     name: 'ServiceIndex',
-    components: { BasicTable, TableAction, [Tag.name]: Tag, SettingDrawer },
+    components: { BasicTable, TableAction, SettingDrawer },
     setup() {
       const [registerDrawer, { openDrawer }] = useDrawer();
       const [registerTable, { reload }] = useTable({
@@ -81,6 +87,11 @@
       function handleDelete(record: Recordable) {
         delService(record.Env, record.Path, record.Typ, record.Id).then(() => {
           reload();
+        });
+      }
+      function handleController(record: Recordable) {
+        controller(record.Env, record.Id).then(() => {
+          message.success('发送重启命令成功！');
         });
       }
 
@@ -114,6 +125,7 @@
         handleEditEnd,
         handleEditCancel,
         handleEditSetting,
+        handleController,
         registerDrawer,
       };
     },

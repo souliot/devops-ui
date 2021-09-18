@@ -78,6 +78,7 @@ const schemas2: FormSchema[] = [
     component: 'Switch',
     label: '是否预加载',
     required: true,
+    defaultValue: true,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -124,6 +125,7 @@ const schemas6: FormSchema[] = [
     component: 'Switch',
     label: '是否启用',
     required: true,
+    defaultValue: true,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -133,6 +135,19 @@ const schemas6: FormSchema[] = [
     field: 'DoSnapType',
     component: 'InputNumber',
     label: '抓拍类型',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'DoSnapSourceTypes',
+    component: 'Select',
+    label: '检索类型',
+    componentProps: {
+      mode: 'tags',
+    },
     required: true,
     colProps: {
       xl: 24,
@@ -164,6 +179,7 @@ const schemas6: FormSchema[] = [
     component: 'Switch',
     label: '节点均衡',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -183,6 +199,7 @@ const schemas6: FormSchema[] = [
     field: 'DivertRun',
     component: 'Switch',
     label: '是否启动分流',
+    defaultValue: false,
     required: true,
     colProps: {
       xl: 24,
@@ -350,6 +367,18 @@ const schemas6: FormSchema[] = [
     },
   },
   {
+    field: 'AlgGPUList',
+    component: 'Select',
+    label: '指定GPU',
+    componentProps: {
+      mode: 'tags',
+    },
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
     field: 'DebugSeqWaitExtractSleep',
     component: 'InputNumber',
     label: '序列待提取等待',
@@ -394,13 +423,225 @@ const schemas6: FormSchema[] = [
     component: 'Input',
     label: '序列导出目录',
     required: true,
+    defaultValue: '',
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
 ];
-const schemas7: FormSchema[] = [];
+const schemas7: FormSchema[] = [
+  {
+    field: 'nodeid',
+    component: 'Input',
+    label: '节点ID',
+    dynamicDisabled: true,
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'clusterid',
+    component: 'Input',
+    label: '集群ID',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'appname',
+    component: 'Input',
+    label: '服务名称',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'httpport',
+    component: 'InputNumber',
+    label: '服务端口',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'diskthreshold',
+    component: 'InputNumber',
+    label: '磁盘阈值',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'minioendpoints',
+    component: 'Select',
+    label: 'Minio地址',
+    componentProps: {
+      mode: 'tags',
+    },
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'accesskeyid',
+    component: 'Input',
+    label: 'Minio用户名',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'secretaccesskey',
+    component: 'Input',
+    label: 'Minio密码',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'ssl',
+    component: 'Switch',
+    label: 'MinioSSL',
+    componentProps: {
+      checked: true,
+    },
+    defaultValue: false,
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'cron',
+    component: 'Input',
+    label: '定时任务',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'uploadpoolsize',
+    component: 'InputNumber',
+    label: '上传文件并发',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'delpoolsize',
+    component: 'InputNumber',
+    label: '删除文件并发',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'loglevel',
+    component: 'InputNumber',
+    label: '日志级别',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'logpath',
+    component: 'Input',
+    label: '日志路径',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'localip',
+    component: 'Input',
+    label: '本地ip地址',
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'runmode',
+    component: 'Select',
+    label: '运行模式',
+    componentProps: {
+      options: [
+        {
+          key: 'dev',
+          value: 'dev',
+          label: 'dev',
+        },
+        {
+          key: 'prod',
+          value: 'prod',
+          label: 'prod',
+        },
+      ],
+    },
+    required: true,
+    colProps: {
+      sm: 6,
+      xl: 6,
+      xxl: 6,
+    },
+  },
+  {
+    field: 'copyrequestbody',
+    component: 'Switch',
+    label: 'CopyBody',
+    componentProps: {
+      checked: true,
+    },
+    defaultValue: false,
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'autorender',
+    component: 'Switch',
+    label: '模板渲染',
+    componentProps: {
+      checked: true,
+    },
+    defaultValue: false,
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+];
 const schemas10: FormSchema[] = [];
 const schemas11: FormSchema[] = [];
 const schemas12: FormSchema[] = [];

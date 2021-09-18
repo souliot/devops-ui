@@ -473,6 +473,21 @@ const schemas6: FormSchema[] = [
       xxl: 8,
     },
   },
+  {
+    field: '',
+    component: 'Divider',
+    label: '',
+  },
+  {
+    field: 'SwitchStopCollectFailedSeq',
+    component: 'Switch',
+    label: '停止收集失败序列',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
 ];
 const schemas7: FormSchema[] = [];
 const schemas10: FormSchema[] = [];

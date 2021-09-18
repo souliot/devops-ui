@@ -79,6 +79,7 @@ const defaultData6 = {
   NXDetectionCount: 5,
   SnapDetectionCount: 30,
   VideoJump: 1,
+  SwitchStopCollectFailedSeq: false,
 };
 const defaultData7 = {};
 const defaultData10 = {};

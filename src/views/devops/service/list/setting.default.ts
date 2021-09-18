@@ -54,7 +54,28 @@ const defaultData3 = {
 const defaultData4 = {};
 const defaultData5 = {};
 const defaultData6 = {};
-const defaultData7 = {};
+const defaultData7 = {
+  clusterid: '1',
+  appname: 'fsserver',
+  httpport: 8880,
+  accesskeyid: 'minio',
+  secretaccesskey: 'minio123',
+  autorender: false,
+  copyrequestbody: true,
+  delpoolsize: 100,
+  uploadpoolsize: 100,
+  diskthreshold: 75,
+  etcdendpoints: [''],
+  cron: '0 30 23 * * *',
+  loglevel: 7,
+  logpath: 'logs',
+  minioendpoints: [''],
+  regionid: '',
+  localip: '',
+  nodeid: '',
+  runmode: 'dev',
+  ver: 1,
+};
 const defaultData10 = {};
 const defaultData11 = {};
 const defaultData12 = {};

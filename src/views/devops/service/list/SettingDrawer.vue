@@ -68,7 +68,7 @@
         }
         resetSchema(schemas);
         if (unref(isUpdate)) {
-          getAppSetting(data?.record.Env, record.Typ, record.Id)
+          getAppSetting(record.Env, record.Typ, record.Id)
             .then((res) => {
               if (res.Data) {
                 version = res.Version;
