@@ -6,7 +6,7 @@ services:
     hostname: devops-ui
     image: devops-ui:5.1.2.0
     ports:
-      - 39090:80
+      - 38080:80
     restart: always
     depends_on:
       - devops
@@ -39,6 +39,8 @@ services:
       DBNAME: Darwin-Devops
       DBUSER: ''
       DBPASSWORD: ''
+    volumes:
+      - ./prom/conf:/app/prom
     networks:
       darwin:
         aliases:
@@ -55,7 +57,7 @@ services:
     image: prom/prometheus:v2.29.2
     privileged: true
     ports:
-      - 885:9090
+      - 39090:9090
     volumes:
       - ./prom/conf:/etc/prometheus
       - ./prom/data:/prometheus
