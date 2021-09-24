@@ -72,11 +72,11 @@ const defaultData5 = {};
 const defaultData6 = {
   AMDDetectionCount: 20,
   ARMDetectionCount: 7,
+  NXDetectionCount: 5,
   CameraJump: 3,
   MaxCacheCount: 10000,
   MaxMultipleCount: 30,
   MinMultipleCount: 0,
-  NXDetectionCount: 5,
   SnapDetectionCount: 30,
   VideoJump: 1,
   SwitchStopCollectFailedSeq: false,
@@ -85,9 +85,7 @@ const defaultData7 = {};
 const defaultData10 = {};
 const defaultData11 = {};
 const defaultData12 = {};
-const defaultData13 = {
-  SearchNodeCount: 1,
-};
+const defaultData13 = {};
 const defaultData14 = {};
 const defaultData15 = {};
 const defaultData19 = {};

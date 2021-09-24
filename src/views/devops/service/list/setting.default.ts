@@ -51,9 +51,36 @@ const defaultData2 = {
 const defaultData3 = {
   HttpPort: 11110,
 };
-const defaultData4 = {};
+const defaultData4 = {
+  Port: '41010',
+};
 const defaultData5 = {};
-const defaultData6 = {};
+const defaultData6 = {
+  BalanceCheckTime: 60,
+  DetectionSourceGetTime: 15,
+  DiskHDDUsedMax: 90,
+  DivertCheckTime: 30,
+  DivertFeatureChanMax: 300,
+  DivertValDo: 0.5,
+  Enabled: true,
+  EtcdEndpoints: [],
+  EtcdKeepTime: 10,
+  FeatureChanMax: 200,
+  FilePort: '12222',
+  MasterNodePort: '19955',
+  PerGpuTaskExtractCount: 10,
+  PerGpuTaskUploadCount: 2,
+  PerGpuTaskZipCount: 2,
+  PerSeqSize: 6144,
+  SnapSourceTypes: [],
+  SnapType: 2,
+  UploadMultiWaitTime: 2,
+  WaitExtractPath: './sequence/',
+  WaitExtractReadDelOldTime: 7,
+  WaitExtractReadTime: 30,
+  WaitUploadPath: './tmp/',
+  WaitUploadReadTime: 30,
+};
 const defaultData7 = {
   clusterid: '1',
   appname: 'fsserver',
@@ -78,9 +105,11 @@ const defaultData7 = {
 };
 const defaultData10 = {};
 const defaultData11 = {};
-const defaultData12 = {};
+const defaultData12 = {
+  Port: '42010',
+};
 const defaultData13 = {
-  SearchNodeCount: 1,
+  Port: '44010',
 };
 const defaultData14 = {};
 const defaultData15 = {};

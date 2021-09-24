@@ -493,19 +493,7 @@ const schemas7: FormSchema[] = [];
 const schemas10: FormSchema[] = [];
 const schemas11: FormSchema[] = [];
 const schemas12: FormSchema[] = [];
-const schemas13: FormSchema[] = [
-  {
-    field: 'SearchNodeCount',
-    component: 'InputNumber',
-    label: '比对节点数量',
-    required: true,
-    colProps: {
-      sm: 8,
-      xl: 8,
-      xxl: 8,
-    },
-  },
-];
+const schemas13: FormSchema[] = [];
 const schemas14: FormSchema[] = [];
 const schemas15: FormSchema[] = [];
 const schemas19: FormSchema[] = [];

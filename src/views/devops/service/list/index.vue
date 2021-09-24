@@ -2,8 +2,11 @@
   <div>
     <BasicTable @register="registerTable" @edit-end="handleEditEnd" @edit-cancel="handleEditCancel">
       <template #status="{ record }">
-        <Tag v-if="record.Status" color="#87d068">在线</Tag>
-        <Tag v-if="!record.Status" color="#f50">离线</Tag>
+        <Tag v-if="record.IsOnline && (!record.Status || record.Status == 0)" color="#87d068"
+          >在线</Tag
+        >
+        <Tag v-if="record.IsOnline && record.Status == 1" color="#2db7f5">挂起</Tag>
+        <Tag v-if="!record.IsOnline" color="#f50">离线</Tag>
       </template>
       <template #metrics="{ record }">
         <Tag v-if="record.MetricsType" color="#87d068">启用</Tag>

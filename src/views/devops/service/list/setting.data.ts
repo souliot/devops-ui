@@ -117,37 +117,70 @@ const schemas3: FormSchema[] = [
     },
   },
 ];
-const schemas4: FormSchema[] = [];
+const schemas4: FormSchema[] = [
+  {
+    field: 'Port',
+    component: 'Input',
+    label: '服务端口',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+];
 const schemas5: FormSchema[] = [];
 const schemas6: FormSchema[] = [
   {
-    field: 'DoEnabled',
+    field: 'Enabled',
     component: 'Switch',
     label: '是否启用',
-    required: true,
-    defaultValue: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'DoSnapType',
+    field: 'SnapType',
     component: 'InputNumber',
     label: '抓拍类型',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'DoSnapSourceTypes',
+    field: 'SnapSourceTypes',
     component: 'Select',
     label: '检索类型',
     componentProps: {
       mode: 'tags',
     },
+    show: false,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'EtcdEndpoints',
+    component: 'Select',
+    label: 'Etcd地址',
+    show: false,
+    componentProps: {
+      mode: 'tags',
+    },
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: 'MasterNodePort',
+    component: 'Input',
+    label: '服务端口',
     required: true,
     colProps: {
       xl: 24,
@@ -155,9 +188,9 @@ const schemas6: FormSchema[] = [
     },
   },
   {
-    field: 'TCPMasterNodePort',
+    field: 'FilePort',
     component: 'Input',
-    label: '服务端口',
+    label: '文件服务端口',
     required: true,
     colProps: {
       xl: 24,
@@ -175,7 +208,22 @@ const schemas6: FormSchema[] = [
     },
   },
   {
-    field: 'NodeBalanceNo',
+    field: 'DiskHDDUsedMax',
+    component: 'InputNumber',
+    label: '磁盘阈值上限',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+  {
+    field: '',
+    component: 'Divider',
+    label: '',
+  },
+  {
+    field: 'BalanceNo',
     component: 'Switch',
     label: '节点均衡',
     required: true,
@@ -186,7 +234,7 @@ const schemas6: FormSchema[] = [
     },
   },
   {
-    field: 'NodeBalanceCheck',
+    field: 'BalanceCheckTime',
     component: 'InputNumber',
     label: '节点均衡间隔',
     required: true,
@@ -194,6 +242,11 @@ const schemas6: FormSchema[] = [
       xl: 24,
       xxl: 24,
     },
+  },
+  {
+    field: '',
+    component: 'Divider',
+    label: '',
   },
   {
     field: 'DivertRun',
@@ -217,7 +270,7 @@ const schemas6: FormSchema[] = [
     },
   },
   {
-    field: 'DivertPerSeqSize',
+    field: 'PerSeqSize',
     component: 'InputNumber',
     label: '分流单序列大小',
     required: true,
@@ -247,7 +300,7 @@ const schemas6: FormSchema[] = [
     },
   },
   {
-    field: 'DivertEtcdKeepTime',
+    field: 'EtcdKeepTime',
     component: 'InputNumber',
     label: '分流Etcd过期',
     required: true,
@@ -257,117 +310,112 @@ const schemas6: FormSchema[] = [
     },
   },
   {
-    field: 'DiskHDDUsedMax',
-    component: 'InputNumber',
-    label: '磁盘阈值上限',
-    required: true,
-    colProps: {
-      xl: 24,
-      xxl: 24,
-    },
+    field: '',
+    component: 'Divider',
+    label: '',
   },
   {
-    field: 'SeqFeatureChanMax',
+    field: 'FeatureChanMax',
     component: 'InputNumber',
     label: '内存序列上限',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'SeqUploadMultiWaitTime',
+    field: 'UploadMultiWaitTime',
     component: 'InputNumber',
     label: '合并文件间隔',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'SeqUploadPath',
+    field: 'WaitUploadPath',
     component: 'Input',
     label: '文件缓存目录',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'SeqUploadReadTime',
+    field: 'WaitUploadReadTime',
     component: 'InputNumber',
     label: '上传读取间隔',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'SeqSeqPath',
+    field: 'WaitExtractPath',
     component: 'Input',
     label: '序列缓存目录',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'SeqSeqReadTime',
+    field: 'WaitExtractReadTime',
     component: 'InputNumber',
     label: '序列读取间隔',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'SeqSeqReadDelOldTime',
+    field: 'WaitExtractReadDelOldTime',
     component: 'InputNumber',
     label: '序列磁盘保留时间',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'GoPerGpuTaskExtractCount',
+    field: 'PerGpuTaskExtractCount',
     component: 'InputNumber',
     label: '提取特征并发',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'GoPerGpuTaskZipCount',
+    field: 'PerGpuTaskZipCount',
     component: 'InputNumber',
     label: '合并文件并发',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'GoPerGpuTaskUploadCount',
+    field: 'PerGpuTaskUploadCount',
     component: 'InputNumber',
     label: '上传或缓存并发',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'AlgGPUList',
+    field: 'GPUList',
     component: 'Select',
     label: '指定GPU',
     componentProps: {
@@ -379,51 +427,50 @@ const schemas6: FormSchema[] = [
     },
   },
   {
-    field: 'DebugSeqWaitExtractSleep',
+    field: 'SeqWaitExtractSleep',
     component: 'InputNumber',
     label: '序列待提取等待',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'DebugSeqExtractSleep',
+    field: 'SeqExtractSleep',
     component: 'InputNumber',
     label: '序列提取等待',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'DebugSeqZipSleep',
+    field: 'SeqZipSleep',
     component: 'InputNumber',
     label: '序列打包等待',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'DebugSeqUploadSleep',
+    field: 'SeqUploadSleep',
     component: 'InputNumber',
     label: '序列上传等待',
-    required: true,
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
     },
   },
   {
-    field: 'DebugSeqZipExportImageDir',
+    field: 'SeqZipExportImageDir',
     component: 'Input',
     label: '序列导出目录',
-    required: true,
-    defaultValue: '',
+    show: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -641,8 +688,30 @@ const schemas7: FormSchema[] = [
 ];
 const schemas10: FormSchema[] = [];
 const schemas11: FormSchema[] = [];
-const schemas12: FormSchema[] = [];
-const schemas13: FormSchema[] = [];
+const schemas12: FormSchema[] = [
+  {
+    field: 'Port',
+    component: 'Input',
+    label: '服务端口',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+];
+const schemas13: FormSchema[] = [
+  {
+    field: 'Port',
+    component: 'Input',
+    label: '服务端口',
+    required: true,
+    colProps: {
+      xl: 24,
+      xxl: 24,
+    },
+  },
+];
 const schemas14: FormSchema[] = [];
 const schemas15: FormSchema[] = [];
 const schemas19: FormSchema[] = [];

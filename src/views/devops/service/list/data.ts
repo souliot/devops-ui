@@ -10,14 +10,14 @@ export const columns: BasicColumn[] = [
     width: 120,
   },
   {
-    title: '集群',
-    dataIndex: 'Path',
-    width: 180,
-  },
-  {
     title: '类型',
     dataIndex: 'Typ',
     width: 100,
+  },
+  {
+    title: '集群',
+    dataIndex: 'Path',
+    width: 180,
   },
   {
     title: '地址',
