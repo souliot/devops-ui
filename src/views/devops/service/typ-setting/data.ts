@@ -181,6 +181,7 @@ const schemas2: FormSchema[] = [
     component: 'Switch',
     label: '是否启动归档',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -331,9 +332,7 @@ const schemas3: FormSchema[] = [
     field: 'CopyRequestBody',
     component: 'Switch',
     label: 'CopyBody',
-    componentProps: {
-      checked: true,
-    },
+    defaultValue: false,
     required: true,
     colProps: {
       xl: 24,
@@ -345,6 +344,7 @@ const schemas3: FormSchema[] = [
     component: 'Switch',
     label: '开启文档',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -354,6 +354,7 @@ const schemas3: FormSchema[] = [
     field: 'EnableAdmin',
     component: 'Switch',
     label: '开启Admin',
+    defaultValue: false,
     required: true,
     colProps: {
       xl: 24,
@@ -483,6 +484,7 @@ const schemas6: FormSchema[] = [
     component: 'Switch',
     label: '停止收集失败序列',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -540,9 +542,7 @@ const schemas24: FormSchema[] = [
     field: 'CopyRequestBody',
     component: 'Switch',
     label: 'CopyBody',
-    componentProps: {
-      checked: true,
-    },
+    defaultValue: false,
     required: true,
     colProps: {
       xl: 24,
@@ -554,6 +554,7 @@ const schemas24: FormSchema[] = [
     component: 'Switch',
     label: '开启文档',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -564,6 +565,7 @@ const schemas24: FormSchema[] = [
     component: 'Switch',
     label: '开启Admin',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -675,9 +677,7 @@ const schemas102: FormSchema[] = [
     field: 'CopyRequestBody',
     component: 'Switch',
     label: 'CopyBody',
-    componentProps: {
-      checked: true,
-    },
+    defaultValue: false,
     required: true,
     colProps: {
       xl: 24,
@@ -689,6 +689,7 @@ const schemas102: FormSchema[] = [
     component: 'Switch',
     label: '开启文档',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
@@ -699,6 +700,7 @@ const schemas102: FormSchema[] = [
     component: 'Switch',
     label: '开启Admin',
     required: true,
+    defaultValue: false,
     colProps: {
       xl: 24,
       xxl: 24,
