@@ -47,6 +47,17 @@ const sys: AppRouteModule = {
         icon: 'ion:golf-outline',
       },
     },
+    {
+      path: 'user',
+      name: 'UserIndex',
+      component: () => import('/@/views/devops/user/index.vue'),
+      meta: {
+        // affix: true,
+        ignoreKeepAlive: true,
+        title: t('routes.devops.sys.user'),
+        icon: 'ion:ios-people-outline',
+      },
+    },
   ],
 };
 
