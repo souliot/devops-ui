@@ -9,6 +9,7 @@ const dashboard: AppRouteModule = {
   component: LAYOUT,
   redirect: '/host/index',
   meta: {
+    hideMenu: true,
     hideChildrenInMenu: true,
     icon: 'ion:business-outline',
     title: t('routes.devops.host.host'),
