@@ -365,17 +365,17 @@ const schemas3: FormSchema[] = [
 const schemas4: FormSchema[] = [];
 const schemas5: FormSchema[] = [];
 const schemas6: FormSchema[] = [
-  {
-    field: 'MinMultipleCount',
-    component: 'InputNumber',
-    label: '最小合并数',
-    required: true,
-    colProps: {
-      sm: 8,
-      xl: 8,
-      xxl: 8,
-    },
-  },
+  // {
+  //   field: 'MinMultipleCount',
+  //   component: 'InputNumber',
+  //   label: '最小合并数',
+  //   required: true,
+  //   colProps: {
+  //     sm: 8,
+  //     xl: 8,
+  //     xxl: 8,
+  //   },
+  // },
   {
     field: 'MaxMultipleCount',
     component: 'InputNumber',

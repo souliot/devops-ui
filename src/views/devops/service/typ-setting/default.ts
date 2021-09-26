@@ -76,7 +76,7 @@ const defaultData6 = {
   CameraJump: 3,
   MaxCacheCount: 10000,
   MaxMultipleCount: 30,
-  MinMultipleCount: 0,
+  // MinMultipleCount: 0,
   SnapDetectionCount: 30,
   VideoJump: 1,
   SwitchStopCollectFailedSeq: false,
