@@ -57,6 +57,7 @@ const defaultData4 = {
 const defaultData5 = {};
 const defaultData6 = {
   BalanceCheckTime: 60,
+  BalanceRun: false,
   DetectionSourceGetTime: 15,
   DiskHDDUsedMax: 90,
   DivertCheckTime: 30,

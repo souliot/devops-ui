@@ -79,7 +79,7 @@ const defaultData6 = {
   // MinMultipleCount: 0,
   SnapDetectionCount: 30,
   VideoJump: 1,
-  SwitchStopCollectFailedSeq: false,
+  SwitchCollectFailedSeqStart: false,
 };
 const defaultData7 = {};
 const defaultData10 = {};

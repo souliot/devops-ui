@@ -480,9 +480,9 @@ const schemas6: FormSchema[] = [
     label: '',
   },
   {
-    field: 'SwitchStopCollectFailedSeq',
+    field: 'SwitchCollectFailedSeqStart',
     component: 'Switch',
-    label: '停止收集失败序列',
+    label: '是否收集失败序列',
     required: true,
     defaultValue: false,
     colProps: {

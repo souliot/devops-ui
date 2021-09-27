@@ -223,9 +223,9 @@ const schemas6: FormSchema[] = [
     label: '',
   },
   {
-    field: 'BalanceNo',
+    field: 'BalanceRun',
     component: 'Switch',
-    label: '取消节点均衡',
+    label: '是否节点均衡',
     required: true,
     defaultValue: false,
     colProps: {
