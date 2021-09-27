@@ -25,6 +25,14 @@ export interface ServiceRequest {
   metricsType: string;
 }
 
+export const getServiceName = (typ: string): string => {
+  const name = serviceMap.get(typ);
+  if (name && name != '') {
+    return name;
+  }
+  return typ;
+};
+
 export const ServiceType = [
   {
     key: '2',
@@ -116,4 +124,17 @@ export const ServiceType = [
     value: '102',
     label: '检测源调度服务',
   },
+  {
+    key: '700',
+    value: '700',
+    label: '日志采集服务',
+  },
 ];
+
+const serviceMap = new Map();
+function initServiceMap() {
+  ServiceType.forEach((v) => {
+    serviceMap.set(v.key, v.label);
+  });
+}
+initServiceMap();

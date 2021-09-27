@@ -1,7 +1,7 @@
 import { FormProps } from '/@/components/Table';
 import { BasicColumn } from '/@/components/Table/src/types/table';
 import { getEnvList } from '/@/api/devops/env';
-import { ServiceType } from '/@/api/devops/model/serviceModel';
+import { ServiceType, getServiceName } from '/@/api/devops/model/serviceModel';
 
 export const columns: BasicColumn[] = [
   {
@@ -13,6 +13,9 @@ export const columns: BasicColumn[] = [
     title: '类型',
     dataIndex: 'Typ',
     width: 100,
+    customRender: ({ text }: { text: any }) => {
+      return getServiceName(text);
+    },
   },
   {
     title: '集群',
