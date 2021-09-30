@@ -33,6 +33,11 @@
               tooltip: '修改服务配置',
             },
             {
+              icon: 'ion:document-text-outline',
+              onClick: handleLogger.bind(null, record),
+              tooltip: '查看服务日志',
+            },
+            {
               icon: 'ion:ios-refresh',
               onClick: handleController.bind(null, record),
               tooltip: '重启服务',
@@ -51,6 +56,7 @@
       </template>
     </BasicTable>
     <SettingDrawer @register="registerDrawer" @success="handleSuccess" />
+    <LoggerModal @register="registerModal" />
   </div>
 </template>
 <script lang="ts">
@@ -59,12 +65,15 @@
   import { columns, getFormConfig } from './data';
   import { Tag, message } from 'ant-design-vue';
   import { useDrawer } from '/@/components/Drawer';
+  import { useModal } from '/@/components/Modal';
   import { getServiceList, delService, setOutAddress } from '/@/api/devops/service';
   import { controller } from '/@/api/devops/controller';
   import SettingDrawer from './SettingDrawer.vue';
+  import LoggerModal from './LoggerModal.vue';
+
   export default defineComponent({
     name: 'ServiceIndex',
-    components: { BasicTable, TableAction, SettingDrawer, Tag },
+    components: { BasicTable, TableAction, SettingDrawer, Tag, LoggerModal },
     setup() {
       const [registerDrawer, { openDrawer }] = useDrawer();
       const [registerTable, { reload }] = useTable({
@@ -113,6 +122,22 @@
       function handleEditCancel() {
         console.log('cancel');
       }
+      const [registerModal, { openModal, setModalProps }] = useModal();
+
+      function handleLogger(record: Recordable) {
+        setModalProps({
+          width: 1024,
+          height: 600,
+          minHeight: 600,
+          showOkBtn: false,
+          showCancelBtn: false,
+          footer: null,
+        });
+        openModal(true, {
+          record,
+          isUpdate: false,
+        });
+      }
 
       function handleEditSetting(record: Recordable) {
         openDrawer(true, {
@@ -125,6 +150,7 @@
         metrics,
         registerTable,
         handleDelete,
+        handleLogger,
         handleSuccess,
         handleReloadCurrent,
         handleEditEnd,
@@ -132,6 +158,7 @@
         handleEditSetting,
         handleController,
         registerDrawer,
+        registerModal,
       };
     },
   });
