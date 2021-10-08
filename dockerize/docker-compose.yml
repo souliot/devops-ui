@@ -34,9 +34,9 @@ services:
         soft: 262144
         hard: 262144
     environment:
-      PROMADDRESS: 192.168.0.4:885
+      PROMADDRESS: prom:9090
       DBHOST: 192.168.0.4:27017
-      DBNAME: Darwin-Devops
+      DBNAME: Darwin-DevOps
       DBUSER: ''
       DBPASSWORD: ''
     volumes:
