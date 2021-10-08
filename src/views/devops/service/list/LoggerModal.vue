@@ -41,11 +41,12 @@
           },
           immediate: false,
           onConnected: () => {
+            state.recordList.splice(0, state.recordList.length);
             console.log('connected');
           },
           onDisconnected: () => {
+            state.recordList.splice(0, state.recordList.length);
             console.log('disconnected');
-            state.recordList = [];
           },
         });
         watchEffect(() => {
@@ -54,9 +55,7 @@
               const res = JSON.parse(data.value);
               state.recordList.push(res);
             } catch (error) {
-              state.recordList.push({
-                res: data.value,
-              });
+              state.recordList.push(data.value);
             }
           }
         });
@@ -67,13 +66,11 @@
       const getTitle = computed(() => '服务日志');
 
       const state = reactive({
-        recordList: [] as { res: string }[],
+        recordList: [] as string[],
       });
 
       const closeFunc = () => {
         ws_close();
-        state.recordList = [];
-        console.log(state.recordList);
       };
 
       return { registerModal, getTitle, state, closeFunc };
